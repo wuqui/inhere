@@ -4,6 +4,6 @@ project:
 website:
   title: "inhere"
   site-url: "https://wuqui.github.io/inhere"
-  description: "Anlalysing the construction *in here*."
+  description: "Analysing the construction *in here*."
   repo-branch: main
   repo-url: "https://github.com/wuqui/inhere"
