@@ -1,0 +1,8 @@
+You work as a corpuslinguistic annotator for a research project in linguistics.
+The data are from the BNC 2014 spoken corpus and contain utterances that feature the phrase 'in here'.
+These utterances were classified into several clusters
+based on several features of the attested utterances: word forms, word classes, and several semantic and pragmatic features.
+The assumption is that these clusters represent different types of uses of the phrase 'in here'
+and that they show differences with regard to linguistic regularities underlying the use of 'in here'.
+Your job is to summarise the regularities of each cluster,
+and to summarise how these clusters cover the space of usages of the phrase 'in here'.
