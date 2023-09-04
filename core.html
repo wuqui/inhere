@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="…">
+
+<title>inhere - main</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="inhere - main">
+<meta property="og:description" content="…">
+<meta property="og:site-name" content="inhere">
+<meta name="twitter:title" content="inhere - main">
+<meta name="twitter:description" content="…">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">inhere</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools ms-auto">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./core.html">main</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">inhere</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./core.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">main</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./src.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">src</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gptanalysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GPT analysis</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#variables" id="toc-variables" class="nav-link active" data-scroll-target="#variables">variables</a></li>
+  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">load data</a></li>
+  <li><a href="#one-hot-encoding" id="toc-one-hot-encoding" class="nav-link" data-scroll-target="#one-hot-encoding">one-hot encoding</a></li>
+  <li><a href="#dimensionality-reduction-with-pca" id="toc-dimensionality-reduction-with-pca" class="nav-link" data-scroll-target="#dimensionality-reduction-with-pca">dimensionality reduction with PCA</a></li>
+  <li><a href="#clustering" id="toc-clustering" class="nav-link" data-scroll-target="#clustering">clustering</a>
+  <ul class="collapse">
+  <li><a href="#determine-number-of-clusters" id="toc-determine-number-of-clusters" class="nav-link" data-scroll-target="#determine-number-of-clusters">determine number of clusters</a></li>
+  <li><a href="#run-clustering" id="toc-run-clustering" class="nav-link" data-scroll-target="#run-clustering">run clustering</a></li>
+  <li><a href="#determine-distances-to-clusters" id="toc-determine-distances-to-clusters" class="nav-link" data-scroll-target="#determine-distances-to-clusters">determine distances to clusters</a></li>
+  </ul></li>
+  <li><a href="#visualise-clustered-attestations" id="toc-visualise-clustered-attestations" class="nav-link" data-scroll-target="#visualise-clustered-attestations">visualise clustered attestations</a></li>
+  <li><a href="#cluster-analysis" id="toc-cluster-analysis" class="nav-link" data-scroll-target="#cluster-analysis">cluster analysis</a>
+  <ul class="collapse">
+  <li><a href="#typical-examples" id="toc-typical-examples" class="nav-link" data-scroll-target="#typical-examples">typical examples</a></li>
+  <li><a href="#analysis-by-gpt" id="toc-analysis-by-gpt" class="nav-link" data-scroll-target="#analysis-by-gpt">analysis by GPT</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/wuqui/inhere/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">main</h1>
+</div>
+
+<div>
+  <div class="description">
+    …
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> inhere.src <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> inhere.gptanalysis <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial <span class="im">import</span> distance</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.manifold <span class="im">import</span> TSNE</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Markdown</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="variables" class="level2">
+<h2 class="anchored" data-anchor-id="variables">variables</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>cols_emb_irrel <span class="op">=</span> [<span class="st">'Number of hit'</span>, <span class="st">'left_context'</span>, <span class="st">'node'</span>, <span class="st">'right_context'</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>cols_emb_forms <span class="op">=</span> [<span class="st">'L2_word'</span>, <span class="st">'L1_word'</span>, <span class="st">'R1_word'</span>]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>cols_emb_wc <span class="op">=</span> [<span class="st">'L2_wc'</span>, <span class="st">'L1_wc'</span>, <span class="st">'R1_wc'</span>]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>cols_emb_sem_prag <span class="op">=</span> [<span class="st">'foc'</span>, <span class="st">'fig'</span>, <span class="st">'mot'</span>, <span class="st">'con'</span>, <span class="st">'van'</span>, <span class="st">'ill'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>cols_emb <span class="op">=</span> cols_emb_wc <span class="op">+</span> cols_emb_sem_prag <span class="op">+</span> cols_emb_forms</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(cols_emb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>12</code></pre>
+</div>
+</div>
+</section>
+<section id="load-data" class="level2">
+<h2 class="anchored" data-anchor-id="load-data">load data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> load_data()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Number of hit</th>
+<th data-quarto-table-cell-role="th">left_context</th>
+<th data-quarto-table-cell-role="th">node</th>
+<th data-quarto-table-cell-role="th">right_context</th>
+<th data-quarto-table-cell-role="th">L2_word</th>
+<th data-quarto-table-cell-role="th">L1_word</th>
+<th data-quarto-table-cell-role="th">R1_word</th>
+<th data-quarto-table-cell-role="th">R2_word</th>
+<th data-quarto-table-cell-role="th">R3_word</th>
+<th data-quarto-table-cell-role="th">L2_wc</th>
+<th data-quarto-table-cell-role="th">L1_wc</th>
+<th data-quarto-table-cell-role="th">R1_wc</th>
+<th data-quarto-table-cell-role="th">foc</th>
+<th data-quarto-table-cell-role="th">fig</th>
+<th data-quarto-table-cell-role="th">mot</th>
+<th data-quarto-table-cell-role="th">con</th>
+<th data-quarto-table-cell-role="th">van</th>
+<th data-quarto-table-cell-role="th">ill</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>swim swam and swum mm there 's not enough pepper</td>
+<td>in here</td>
+<td>well there 's a whole new thing of pepper we</td>
+<td>enough</td>
+<td>pepper</td>
+<td>well</td>
+<td>there</td>
+<td>s</td>
+<td>L2PRON</td>
+<td>L1N</td>
+<td>R1ADV</td>
+<td>content</td>
+<td>ingredient</td>
+<td>in</td>
+<td>dish</td>
+<td>external</td>
+<td>representative</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>in Suffolk in Suffolk yeah what another helico...</td>
+<td>in here</td>
+<td>? no it 's did n't see it --UNCLEARWORD was</td>
+<td>went</td>
+<td>down</td>
+<td>?</td>
+<td>no</td>
+<td>it</td>
+<td>L2V</td>
+<td>L1ADV</td>
+<td>R1PUNCT</td>
+<td>motion</td>
+<td>object</td>
+<td>into</td>
+<td>region</td>
+<td>internal</td>
+<td>question</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>in here no it was lucky you had one come</td>
+<td>in here</td>
+<td>did you ? yeah the dogs chased the chickens oh</td>
+<td>one</td>
+<td>come</td>
+<td>did</td>
+<td>you</td>
+<td>?</td>
+<td>L2PRON</td>
+<td>L1V</td>
+<td>R1V</td>
+<td>motion</td>
+<td>animal</td>
+<td>into</td>
+<td>building</td>
+<td>internal</td>
+<td>expressive</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>so you but if the ground is nice and moist</td>
+<td>in here</td>
+<td>and you 've got a moist atmosphere yeah yeah that</td>
+<td>and</td>
+<td>moist</td>
+<td>and</td>
+<td>you</td>
+<td>ve</td>
+<td>L2CONJ</td>
+<td>L1ADJ</td>
+<td>R1CONJ</td>
+<td>quality</td>
+<td>setting</td>
+<td>in</td>
+<td>garden</td>
+<td>internal</td>
+<td>suggestion</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>re going to have some permanent music set up a...</td>
+<td>in here</td>
+<td>and something probably er do n't need to plug it</td>
+<td>up</td>
+<td>absolutely</td>
+<td>and</td>
+<td>something</td>
+<td>probably</td>
+<td>L2ADV</td>
+<td>L1ADV</td>
+<td>R1CONJ</td>
+<td>action</td>
+<td>object</td>
+<td>into</td>
+<td>socket</td>
+<td>external</td>
+<td>suggestion</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">195</td>
+<td>196</td>
+<td>newspaper yeah that 'll be in the newspaper 'l...</td>
+<td>in here</td>
+<td>yeah we 've got loads of paper in there okay</td>
+<td>ll</td>
+<td>be</td>
+<td>yeah</td>
+<td>we</td>
+<td>ve</td>
+<td>L2V</td>
+<td>L1V</td>
+<td>R1INTERJ</td>
+<td>location</td>
+<td>abstract</td>
+<td>in</td>
+<td>document</td>
+<td>external</td>
+<td>prediction</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">196</td>
+<td>197</td>
+<td>cigarette in your house no no we 've been smoking</td>
+<td>in here</td>
+<td>we s- we just we were just sat smoking here</td>
+<td>been</td>
+<td>smoking</td>
+<td>we</td>
+<td>s-</td>
+<td>we</td>
+<td>L2V</td>
+<td>L1V</td>
+<td>R1PRON</td>
+<td>action</td>
+<td>speaker_pl</td>
+<td>in</td>
+<td>apartment</td>
+<td>internal</td>
+<td>representative</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">197</td>
+<td>198</td>
+<td>yeah they 're the rules --UNCLEARWORD --UNCLEA...</td>
+<td>in here</td>
+<td>do you want me to open that window again ?</td>
+<td>is</td>
+<td>hot</td>
+<td>do</td>
+<td>you</td>
+<td>want</td>
+<td>L2V</td>
+<td>L1ADJ</td>
+<td>R1V</td>
+<td>quality</td>
+<td>setting</td>
+<td>in</td>
+<td>room</td>
+<td>internal</td>
+<td>expressive</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">198</td>
+<td>199</td>
+<td>actually I open the fridge and think there 's ...</td>
+<td>in here</td>
+<td>I wan na eat cos I never get to go</td>
+<td>s</td>
+<td>nothing</td>
+<td>I</td>
+<td>wan</td>
+<td>na</td>
+<td>L2V</td>
+<td>L1PRON</td>
+<td>R1PRON</td>
+<td>content</td>
+<td>there</td>
+<td>in</td>
+<td>container</td>
+<td>external</td>
+<td>representative</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">199</td>
+<td>200</td>
+<td>that before with okay with the other people wh...</td>
+<td>in here</td>
+<td>okay so er erm erm they are because they and</td>
+<td>who</td>
+<td>moved</td>
+<td>okay</td>
+<td>so</td>
+<td>er</td>
+<td>L2PRON</td>
+<td>L1V</td>
+<td>R1ADV</td>
+<td>motion</td>
+<td>person</td>
+<td>into</td>
+<td>apartment</td>
+<td>internal</td>
+<td>unclear</td>
+</tr>
+</tbody>
+</table>
+
+<p>200 rows × 18 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="one-hot-encoding" class="level2">
+<h2 class="anchored" data-anchor-id="one-hot-encoding">one-hot encoding</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_onehot <span class="op">=</span> get_one_hot_encoding(df, cols_emb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_onehot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">L2_wc_L2ADJ</th>
+<th data-quarto-table-cell-role="th">L2_wc_L2ADV</th>
+<th data-quarto-table-cell-role="th">L2_wc_L2CONJ</th>
+<th data-quarto-table-cell-role="th">L2_wc_L2DET</th>
+<th data-quarto-table-cell-role="th">L2_wc_L2INTERJ</th>
+<th data-quarto-table-cell-role="th">L2_wc_L2N</th>
+<th data-quarto-table-cell-role="th">L2_wc_L2NEG</th>
+<th data-quarto-table-cell-role="th">L2_wc_L2NUM</th>
+<th data-quarto-table-cell-role="th">L2_wc_L2PREP</th>
+<th data-quarto-table-cell-role="th">L2_wc_L2PRON</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">R1_word_where</th>
+<th data-quarto-table-cell-role="th">R1_word_which</th>
+<th data-quarto-table-cell-role="th">R1_word_while</th>
+<th data-quarto-table-cell-role="th">R1_word_who</th>
+<th data-quarto-table-cell-role="th">R1_word_whoops</th>
+<th data-quarto-table-cell-role="th">R1_word_with</th>
+<th data-quarto-table-cell-role="th">R1_word_would</th>
+<th data-quarto-table-cell-role="th">R1_word_yeah</th>
+<th data-quarto-table-cell-role="th">R1_word_yes</th>
+<th data-quarto-table-cell-role="th">R1_word_you</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">195</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">196</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">197</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">198</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">199</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>True</td>
+<td>...</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+
+<p>200 rows × 408 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="dimensionality-reduction-with-pca" class="level2">
+<h2 class="anchored" data-anchor-id="dimensionality-reduction-with-pca">dimensionality reduction with PCA</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dimred <span class="op">=</span> reduce_dimensions(df_onehot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dimred.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>(200, 50)</code></pre>
+</div>
+</div>
+</section>
+<section id="clustering" class="level2">
+<h2 class="anchored" data-anchor-id="clustering">clustering</h2>
+<section id="determine-number-of-clusters" class="level3">
+<h3 class="anchored" data-anchor-id="determine-number-of-clusters">determine number of clusters</h3>
+<section id="automatic-method-using-silhouette-score" class="level4">
+<h4 class="anchored" data-anchor-id="automatic-method-using-silhouette-score">automatic method using Silhouette Score</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>clusters_n <span class="op">=</span> get_number_of_clusters(dimred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>clusters_n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>9</code></pre>
+</div>
+</div>
+</section>
+<section id="manual-method-using-elbow-method" class="level4">
+<h4 class="anchored" data-anchor-id="manual-method-using-elbow-method">manual method using Elbow Method</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>n_max <span class="op">=</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>make_elbow_chart(dimred, n_max)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+  #altair-viz-09ad9eb89b6e4c12bb998a08e3afd3b5.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-09ad9eb89b6e4c12bb998a08e3afd3b5.vega-embed details,
+  #altair-viz-09ad9eb89b6e4c12bb998a08e3afd3b5.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-09ad9eb89b6e4c12bb998a08e3afd3b5"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-09ad9eb89b6e4c12bb998a08e3afd3b5") {
+      outputDiv = document.getElementById("altair-viz-09ad9eb89b6e4c12bb998a08e3afd3b5");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.14.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.14.1"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-d2c48ec971b61264fba26dc1b4ace8e6"}, "mark": {"type": "line", "point": true}, "encoding": {"tooltip": [{"field": "Number of clusters", "type": "quantitative"}, {"field": "WCSS", "type": "quantitative"}], "x": {"field": "Number of clusters", "type": "quantitative"}, "y": {"field": "WCSS", "type": "quantitative"}}, "title": "Determining the number of clusters based on the Elbow Method", "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-d2c48ec971b61264fba26dc1b4ace8e6": [{"Number of clusters": 1, "WCSS": 1514.1575168368379}, {"Number of clusters": 2, "WCSS": 1358.6311818313793}, {"Number of clusters": 3, "WCSS": 1253.0547998201475}, {"Number of clusters": 4, "WCSS": 1175.9032638375097}, {"Number of clusters": 5, "WCSS": 1131.5908176531077}, {"Number of clusters": 6, "WCSS": 1086.4912271496914}, {"Number of clusters": 7, "WCSS": 1054.8143460679112}, {"Number of clusters": 8, "WCSS": 1023.7892853051047}, {"Number of clusters": 9, "WCSS": 1008.5861218317558}, {"Number of clusters": 10, "WCSS": 991.065620966009}, {"Number of clusters": 11, "WCSS": 966.6156396368749}, {"Number of clusters": 12, "WCSS": 937.6505273070445}, {"Number of clusters": 13, "WCSS": 931.5821859171936}, {"Number of clusters": 14, "WCSS": 911.1587852780403}, {"Number of clusters": 15, "WCSS": 892.1807794067138}, {"Number of clusters": 16, "WCSS": 872.1448920773128}, {"Number of clusters": 17, "WCSS": 861.2113924904584}, {"Number of clusters": 18, "WCSS": 846.5976592158254}, {"Number of clusters": 19, "WCSS": 838.1597672537673}, {"Number of clusters": 20, "WCSS": 824.9802470789414}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>clusters_n <span class="op">=</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="run-clustering" class="level3">
+<h3 class="anchored" data-anchor-id="run-clustering">run clustering</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>clusters, centers <span class="op">=</span> run_clustering(dimred, clusters_n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'cluster'</span>] <span class="op">=</span> clusters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="determine-distances-to-clusters" class="level3">
+<h3 class="anchored" data-anchor-id="determine-distances-to-clusters">determine distances to clusters</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> get_cluster_distances(df, dimred, centers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Number of hit</th>
+<th data-quarto-table-cell-role="th">left_context</th>
+<th data-quarto-table-cell-role="th">node</th>
+<th data-quarto-table-cell-role="th">right_context</th>
+<th data-quarto-table-cell-role="th">L2_word</th>
+<th data-quarto-table-cell-role="th">L1_word</th>
+<th data-quarto-table-cell-role="th">R1_word</th>
+<th data-quarto-table-cell-role="th">R2_word</th>
+<th data-quarto-table-cell-role="th">R3_word</th>
+<th data-quarto-table-cell-role="th">L2_wc</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">mot</th>
+<th data-quarto-table-cell-role="th">con</th>
+<th data-quarto-table-cell-role="th">van</th>
+<th data-quarto-table-cell-role="th">ill</th>
+<th data-quarto-table-cell-role="th">cluster</th>
+<th data-quarto-table-cell-role="th">dist_cluster_0</th>
+<th data-quarto-table-cell-role="th">dist_cluster_1</th>
+<th data-quarto-table-cell-role="th">dist_cluster_2</th>
+<th data-quarto-table-cell-role="th">dist_cluster_3</th>
+<th data-quarto-table-cell-role="th">dist_cluster_4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>swim swam and swum mm there 's not enough pepper</td>
+<td>in here</td>
+<td>well there 's a whole new thing of pepper we</td>
+<td>enough</td>
+<td>pepper</td>
+<td>well</td>
+<td>there</td>
+<td>s</td>
+<td>L2PRON</td>
+<td>...</td>
+<td>in</td>
+<td>dish</td>
+<td>external</td>
+<td>representative</td>
+<td>0</td>
+<td>2.574126</td>
+<td>3.518907</td>
+<td>3.565559</td>
+<td>3.189650</td>
+<td>3.082958</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>in Suffolk in Suffolk yeah what another helico...</td>
+<td>in here</td>
+<td>? no it 's did n't see it --UNCLEARWORD was</td>
+<td>went</td>
+<td>down</td>
+<td>?</td>
+<td>no</td>
+<td>it</td>
+<td>L2V</td>
+<td>...</td>
+<td>into</td>
+<td>region</td>
+<td>internal</td>
+<td>question</td>
+<td>3</td>
+<td>3.213378</td>
+<td>2.876518</td>
+<td>3.561182</td>
+<td>2.753914</td>
+<td>3.061164</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>in here no it was lucky you had one come</td>
+<td>in here</td>
+<td>did you ? yeah the dogs chased the chickens oh</td>
+<td>one</td>
+<td>come</td>
+<td>did</td>
+<td>you</td>
+<td>?</td>
+<td>L2PRON</td>
+<td>...</td>
+<td>into</td>
+<td>building</td>
+<td>internal</td>
+<td>expressive</td>
+<td>1</td>
+<td>3.430617</td>
+<td>2.184031</td>
+<td>3.517899</td>
+<td>3.594468</td>
+<td>3.144925</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>so you but if the ground is nice and moist</td>
+<td>in here</td>
+<td>and you 've got a moist atmosphere yeah yeah that</td>
+<td>and</td>
+<td>moist</td>
+<td>and</td>
+<td>you</td>
+<td>ve</td>
+<td>L2CONJ</td>
+<td>...</td>
+<td>in</td>
+<td>garden</td>
+<td>internal</td>
+<td>suggestion</td>
+<td>2</td>
+<td>3.285447</td>
+<td>3.488172</td>
+<td>2.479260</td>
+<td>3.765549</td>
+<td>2.948098</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>re going to have some permanent music set up a...</td>
+<td>in here</td>
+<td>and something probably er do n't need to plug it</td>
+<td>up</td>
+<td>absolutely</td>
+<td>and</td>
+<td>something</td>
+<td>probably</td>
+<td>L2ADV</td>
+<td>...</td>
+<td>into</td>
+<td>socket</td>
+<td>external</td>
+<td>suggestion</td>
+<td>0</td>
+<td>2.710894</td>
+<td>3.355253</td>
+<td>3.884228</td>
+<td>3.467482</td>
+<td>3.295035</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">195</td>
+<td>196</td>
+<td>newspaper yeah that 'll be in the newspaper 'l...</td>
+<td>in here</td>
+<td>yeah we 've got loads of paper in there okay</td>
+<td>ll</td>
+<td>be</td>
+<td>yeah</td>
+<td>we</td>
+<td>ve</td>
+<td>L2V</td>
+<td>...</td>
+<td>in</td>
+<td>document</td>
+<td>external</td>
+<td>prediction</td>
+<td>0</td>
+<td>2.830600</td>
+<td>3.556885</td>
+<td>3.717338</td>
+<td>3.259911</td>
+<td>3.098179</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">196</td>
+<td>197</td>
+<td>cigarette in your house no no we 've been smoking</td>
+<td>in here</td>
+<td>we s- we just we were just sat smoking here</td>
+<td>been</td>
+<td>smoking</td>
+<td>we</td>
+<td>s-</td>
+<td>we</td>
+<td>L2V</td>
+<td>...</td>
+<td>in</td>
+<td>apartment</td>
+<td>internal</td>
+<td>representative</td>
+<td>4</td>
+<td>2.894592</td>
+<td>2.822629</td>
+<td>3.231568</td>
+<td>3.452605</td>
+<td>2.202666</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">197</td>
+<td>198</td>
+<td>yeah they 're the rules --UNCLEARWORD --UNCLEA...</td>
+<td>in here</td>
+<td>do you want me to open that window again ?</td>
+<td>is</td>
+<td>hot</td>
+<td>do</td>
+<td>you</td>
+<td>want</td>
+<td>L2V</td>
+<td>...</td>
+<td>in</td>
+<td>room</td>
+<td>internal</td>
+<td>expressive</td>
+<td>2</td>
+<td>3.421285</td>
+<td>3.538195</td>
+<td>1.710039</td>
+<td>3.861995</td>
+<td>2.848420</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">198</td>
+<td>199</td>
+<td>actually I open the fridge and think there 's ...</td>
+<td>in here</td>
+<td>I wan na eat cos I never get to go</td>
+<td>s</td>
+<td>nothing</td>
+<td>I</td>
+<td>wan</td>
+<td>na</td>
+<td>L2V</td>
+<td>...</td>
+<td>in</td>
+<td>container</td>
+<td>external</td>
+<td>representative</td>
+<td>0</td>
+<td>2.401980</td>
+<td>3.652510</td>
+<td>3.582584</td>
+<td>3.187979</td>
+<td>3.061696</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">199</td>
+<td>200</td>
+<td>that before with okay with the other people wh...</td>
+<td>in here</td>
+<td>okay so er erm erm they are because they and</td>
+<td>who</td>
+<td>moved</td>
+<td>okay</td>
+<td>so</td>
+<td>er</td>
+<td>L2PRON</td>
+<td>...</td>
+<td>into</td>
+<td>apartment</td>
+<td>internal</td>
+<td>unclear</td>
+<td>1</td>
+<td>3.441591</td>
+<td>2.092455</td>
+<td>3.683854</td>
+<td>3.607015</td>
+<td>3.148722</td>
+</tr>
+</tbody>
+</table>
+
+<p>200 rows × 24 columns</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df.to_excel('../out/attestations_clustered.xlsx', index=False)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="visualise-clustered-attestations" class="level2">
+<h2 class="anchored" data-anchor-id="visualise-clustered-attestations">visualise clustered attestations</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df_tsne <span class="op">=</span> run_tsne(dimred)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>chart <span class="op">=</span> plot_tsne(df_tsne, clusters)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>chart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<style>
+  #altair-viz-cf9ba8047b7547e7a8b704285e801d63.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-cf9ba8047b7547e7a8b704285e801d63.vega-embed details,
+  #altair-viz-cf9ba8047b7547e7a8b704285e801d63.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-cf9ba8047b7547e7a8b704285e801d63"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-cf9ba8047b7547e7a8b704285e801d63") {
+      outputDiv = document.getElementById("altair-viz-cf9ba8047b7547e7a8b704285e801d63");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@5.14.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "5.14.1"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-c71dc1e75cb456b35995153a603932b5"}, "mark": {"type": "point"}, "encoding": {"color": {"field": "cluster", "type": "nominal"}, "x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-c71dc1e75cb456b35995153a603932b5": [{"x": 6.383459568023682, "y": -0.3273431956768036, "cluster": 0}, {"x": 2.944645643234253, "y": 8.892979621887207, "cluster": 3}, {"x": 4.880312442779541, "y": -14.972939491271973, "cluster": 1}, {"x": -6.810108661651611, "y": 12.808976173400879, "cluster": 2}, {"x": -7.922205448150635, "y": -4.471797943115234, "cluster": 0}, {"x": -3.079946517944336, "y": -3.08920955657959, "cluster": 4}, {"x": 6.477442264556885, "y": 8.289552688598633, "cluster": 0}, {"x": -11.628717422485352, "y": -1.1702600717544556, "cluster": 0}, {"x": 9.96716022491455, "y": 3.411747455596924, "cluster": 0}, {"x": -2.0561060905456543, "y": -5.640087604522705, "cluster": 4}, {"x": -9.23298168182373, "y": 6.641157150268555, "cluster": 2}, {"x": 9.521798133850098, "y": -3.29689621925354, "cluster": 0}, {"x": -11.241896629333496, "y": 5.316054821014404, "cluster": 2}, {"x": -0.956396758556366, "y": 7.586587429046631, "cluster": 4}, {"x": -4.998355388641357, "y": -0.6928861737251282, "cluster": 4}, {"x": -10.148473739624023, "y": -0.7374666929244995, "cluster": 4}, {"x": 5.245067119598389, "y": -12.423802375793457, "cluster": 1}, {"x": 14.848523139953613, "y": 0.16952583193778992, "cluster": 0}, {"x": 0.04995298013091087, "y": 2.4244749546051025, "cluster": 4}, {"x": 6.377532005310059, "y": 0.1484171450138092, "cluster": 0}, {"x": -10.442520141601562, "y": 9.283743858337402, "cluster": 2}, {"x": -9.910592079162598, "y": 10.621780395507812, "cluster": 2}, {"x": 0.7023161053657532, "y": -7.098889350891113, "cluster": 4}, {"x": -1.5030993223190308, "y": -4.72453498840332, "cluster": 4}, {"x": 7.126184463500977, "y": -3.039578437805176, "cluster": 0}, {"x": -4.986868381500244, "y": -12.623772621154785, "cluster": 0}, {"x": -9.14847183227539, "y": 2.0893032550811768, "cluster": 4}, {"x": -4.596658229827881, "y": 3.365328073501587, "cluster": 4}, {"x": -1.1246426105499268, "y": 3.6326284408569336, "cluster": 4}, {"x": -10.121542930603027, "y": 3.7094321250915527, "cluster": 2}, {"x": 9.68319034576416, "y": 4.221822261810303, "cluster": 0}, {"x": -1.868563175201416, "y": -5.075644016265869, "cluster": 4}, {"x": 9.641837120056152, "y": -4.381735801696777, "cluster": 0}, {"x": 4.274229526519775, "y": -8.034758567810059, "cluster": 4}, {"x": 2.4496634006500244, "y": -15.494194030761719, "cluster": 1}, {"x": 14.575348854064941, "y": 5.591213703155518, "cluster": 3}, {"x": 7.251321315765381, "y": 6.169826507568359, "cluster": 0}, {"x": -9.428464889526367, "y": 11.654520988464355, "cluster": 2}, {"x": 9.222673416137695, "y": 0.18363407254219055, "cluster": 0}, {"x": 13.875500679016113, "y": 4.964739799499512, "cluster": 3}, {"x": -5.513758182525635, "y": 9.067399978637695, "cluster": 2}, {"x": 5.2664103507995605, "y": -12.407477378845215, "cluster": 1}, {"x": 8.91678237915039, "y": 11.668790817260742, "cluster": 0}, {"x": 13.730768203735352, "y": -2.791154384613037, "cluster": 0}, {"x": -8.686119079589844, "y": 11.11013412475586, "cluster": 2}, {"x": -6.40733003616333, "y": 10.765478134155273, "cluster": 2}, {"x": -2.239712953567505, "y": 1.0241352319717407, "cluster": 4}, {"x": -4.0636420249938965, "y": 3.8562190532684326, "cluster": 4}, {"x": -6.431309700012207, "y": -0.14493738114833832, "cluster": 4}, {"x": 0.454296350479126, "y": -0.6193898320198059, "cluster": 4}, {"x": -9.310450553894043, "y": 7.079543113708496, "cluster": 2}, {"x": 6.016267776489258, "y": 5.180417060852051, "cluster": 0}, {"x": 9.451642036437988, "y": 1.7532320022583008, "cluster": 0}, {"x": 1.5879865884780884, "y": -13.762968063354492, "cluster": 1}, {"x": 4.085248947143555, "y": -11.248348236083984, "cluster": 1}, {"x": -4.550373077392578, "y": -3.3044075965881348, "cluster": 4}, {"x": -6.6522979736328125, "y": -4.325745105743408, "cluster": 0}, {"x": 6.7320146560668945, "y": -0.1753961592912674, "cluster": 0}, {"x": -1.8243694305419922, "y": 0.3065788149833679, "cluster": 4}, {"x": -7.503214359283447, "y": -7.530890464782715, "cluster": 0}, {"x": 11.580216407775879, "y": 5.883453845977783, "cluster": 3}, {"x": 3.177265167236328, "y": -16.482040405273438, "cluster": 1}, {"x": 2.8458361625671387, "y": -12.572216033935547, "cluster": 1}, {"x": 0.15347887575626373, "y": 0.2695049047470093, "cluster": 4}, {"x": 3.9859766960144043, "y": -16.288543701171875, "cluster": 1}, {"x": 12.39190673828125, "y": 7.690548896789551, "cluster": 3}, {"x": -3.9655017852783203, "y": -2.8128185272216797, "cluster": 4}, {"x": 12.359302520751953, "y": 8.932861328125, "cluster": 3}, {"x": -4.614861011505127, "y": -0.6145605444908142, "cluster": 4}, {"x": 3.318225383758545, "y": -4.123872756958008, "cluster": 4}, {"x": -0.8115817308425903, "y": -1.4986193180084229, "cluster": 4}, {"x": 6.641658306121826, "y": 3.263228178024292, "cluster": 0}, {"x": 13.942178726196289, "y": -4.064402103424072, "cluster": 0}, {"x": -3.526217460632324, "y": 8.506551742553711, "cluster": 4}, {"x": 1.322740077972412, "y": -11.450188636779785, "cluster": 1}, {"x": 1.7944191694259644, "y": -10.721147537231445, "cluster": 1}, {"x": 12.962311744689941, "y": -0.4237470030784607, "cluster": 0}, {"x": -8.893851280212402, "y": 8.37966251373291, "cluster": 2}, {"x": -0.13078495860099792, "y": 4.919550895690918, "cluster": 4}, {"x": -2.6184637546539307, "y": -7.470507621765137, "cluster": 4}, {"x": 0.7439773082733154, "y": -6.125768184661865, "cluster": 4}, {"x": 0.981351375579834, "y": -15.405719757080078, "cluster": 1}, {"x": 5.608166694641113, "y": -7.3843607902526855, "cluster": 4}, {"x": 5.889870643615723, "y": -7.218053340911865, "cluster": 4}, {"x": 11.376380920410156, "y": -0.8168168663978577, "cluster": 0}, {"x": -11.369084358215332, "y": -1.2279657125473022, "cluster": 4}, {"x": 9.331439971923828, "y": -1.5755987167358398, "cluster": 0}, {"x": -2.9253458976745605, "y": -0.2789520025253296, "cluster": 4}, {"x": -7.660865306854248, "y": -2.4719443321228027, "cluster": 4}, {"x": -10.005629539489746, "y": 8.42183780670166, "cluster": 2}, {"x": -3.11484694480896, "y": -11.166626930236816, "cluster": 4}, {"x": -1.1597938537597656, "y": 4.848829746246338, "cluster": 4}, {"x": -2.4376800060272217, "y": 4.385347843170166, "cluster": 4}, {"x": -7.245362281799316, "y": -7.698974609375, "cluster": 0}, {"x": 0.1796356737613678, "y": -13.356040954589844, "cluster": 1}, {"x": 2.595705270767212, "y": 2.7912709712982178, "cluster": 4}, {"x": 0.7983184456825256, "y": -1.1173957586288452, "cluster": 4}, {"x": 11.955489158630371, "y": 5.738046169281006, "cluster": 3}, {"x": 2.98679256439209, "y": -6.26633882522583, "cluster": 4}, {"x": -6.431014537811279, "y": 7.3907389640808105, "cluster": 2}, {"x": -11.9481782913208, "y": 9.909937858581543, "cluster": 2}, {"x": -2.1486423015594482, "y": -8.12490463256836, "cluster": 4}, {"x": 5.696558952331543, "y": -14.070916175842285, "cluster": 1}, {"x": 14.739237785339355, "y": 0.05311858281493187, "cluster": 0}, {"x": 10.852977752685547, "y": -1.8179712295532227, "cluster": 0}, {"x": -3.8907101154327393, "y": -11.936930656433105, "cluster": 0}, {"x": 10.498441696166992, "y": 7.464117527008057, "cluster": 3}, {"x": 0.3426325023174286, "y": -3.5357472896575928, "cluster": 4}, {"x": 9.522348403930664, "y": 2.068842887878418, "cluster": 0}, {"x": -10.048917770385742, "y": 3.8047051429748535, "cluster": 2}, {"x": 15.282203674316406, "y": 3.751455068588257, "cluster": 3}, {"x": -4.686542987823486, "y": -12.477265357971191, "cluster": 0}, {"x": 2.478633165359497, "y": 2.2411115169525146, "cluster": 4}, {"x": 7.188483238220215, "y": -10.936796188354492, "cluster": 1}, {"x": 9.678069114685059, "y": 6.71836519241333, "cluster": 3}, {"x": 14.736905097961426, "y": 6.4190497398376465, "cluster": 3}, {"x": -5.869473457336426, "y": 1.0243148803710938, "cluster": 4}, {"x": 5.5975565910339355, "y": -10.644735336303711, "cluster": 1}, {"x": 3.2031402587890625, "y": -4.31645393371582, "cluster": 4}, {"x": -8.69683837890625, "y": 10.963908195495605, "cluster": 2}, {"x": 3.3519058227539062, "y": -6.539578914642334, "cluster": 4}, {"x": -9.816954612731934, "y": 8.037202835083008, "cluster": 2}, {"x": 0.49698537588119507, "y": -5.230743408203125, "cluster": 4}, {"x": 6.5242133140563965, "y": -12.643070220947266, "cluster": 1}, {"x": 5.550810813903809, "y": 5.183445453643799, "cluster": 0}, {"x": 14.617931365966797, "y": 6.792809963226318, "cluster": 3}, {"x": -10.66944694519043, "y": 11.188836097717285, "cluster": 2}, {"x": 4.648488998413086, "y": -7.187018394470215, "cluster": 4}, {"x": 2.9941797256469727, "y": -10.492889404296875, "cluster": 1}, {"x": 2.0702805519104004, "y": -14.493094444274902, "cluster": 1}, {"x": -7.622115135192871, "y": 11.904906272888184, "cluster": 2}, {"x": 4.799153804779053, "y": 3.8572611808776855, "cluster": 0}, {"x": -7.598310470581055, "y": 5.093693733215332, "cluster": 2}, {"x": -8.865551948547363, "y": 9.674721717834473, "cluster": 2}, {"x": -7.947958946228027, "y": -6.159154891967773, "cluster": 0}, {"x": -8.243753433227539, "y": 8.688538551330566, "cluster": 2}, {"x": -7.903842926025391, "y": 9.154775619506836, "cluster": 2}, {"x": 7.548088550567627, "y": -11.44022274017334, "cluster": 1}, {"x": 8.838658332824707, "y": 4.362783432006836, "cluster": 0}, {"x": 12.575749397277832, "y": 8.49090576171875, "cluster": 3}, {"x": -10.899449348449707, "y": -5.02530574798584, "cluster": 0}, {"x": -6.947085380554199, "y": -0.6626770496368408, "cluster": 4}, {"x": 0.051858410239219666, "y": 3.5524404048919678, "cluster": 4}, {"x": 11.570481300354004, "y": -1.432364821434021, "cluster": 0}, {"x": 2.247596502304077, "y": 0.45745494961738586, "cluster": 4}, {"x": -1.0302810668945312, "y": -8.016047477722168, "cluster": 4}, {"x": -7.119091987609863, "y": -1.5132001638412476, "cluster": 4}, {"x": -0.19603167474269867, "y": -7.752516746520996, "cluster": 4}, {"x": -0.4235905408859253, "y": 7.133843421936035, "cluster": 4}, {"x": 4.034474849700928, "y": -4.818889617919922, "cluster": 4}, {"x": -12.867713928222656, "y": 7.561256408691406, "cluster": 2}, {"x": 2.868027925491333, "y": -14.896559715270996, "cluster": 1}, {"x": 11.026315689086914, "y": 8.345098495483398, "cluster": 3}, {"x": 11.79680061340332, "y": -3.386383533477783, "cluster": 0}, {"x": -7.562967777252197, "y": 5.061773300170898, "cluster": 2}, {"x": 0.7508150935173035, "y": 4.630619049072266, "cluster": 4}, {"x": 3.7408390045166016, "y": -13.271524429321289, "cluster": 1}, {"x": -12.520931243896484, "y": 9.354140281677246, "cluster": 2}, {"x": 14.313288688659668, "y": 6.6938347816467285, "cluster": 3}, {"x": 6.540404796600342, "y": 8.360753059387207, "cluster": 0}, {"x": -2.8919332027435303, "y": 3.5592281818389893, "cluster": 4}, {"x": -7.623851776123047, "y": 11.936092376708984, "cluster": 2}, {"x": 3.7149405479431152, "y": -13.15728759765625, "cluster": 1}, {"x": 2.0091712474823, "y": -2.3624284267425537, "cluster": 4}, {"x": -9.616873741149902, "y": 12.852781295776367, "cluster": 2}, {"x": 6.361003875732422, "y": -14.128016471862793, "cluster": 1}, {"x": -2.144029378890991, "y": 5.708724498748779, "cluster": 4}, {"x": -7.173883438110352, "y": 8.312856674194336, "cluster": 2}, {"x": 2.876199245452881, "y": 8.916585922241211, "cluster": 1}, {"x": 3.48526930809021, "y": -2.643110990524292, "cluster": 4}, {"x": -1.2297745943069458, "y": -1.1925501823425293, "cluster": 4}, {"x": -4.247167587280273, "y": 8.708054542541504, "cluster": 2}, {"x": 3.447418212890625, "y": -1.477323293685913, "cluster": 4}, {"x": 8.203422546386719, "y": 6.342557430267334, "cluster": 3}, {"x": -3.9967994689941406, "y": 0.12022635340690613, "cluster": 4}, {"x": 10.723543167114258, "y": -0.314849853515625, "cluster": 0}, {"x": -0.1562442034482956, "y": -4.658875465393066, "cluster": 4}, {"x": -11.849230766296387, "y": 6.467774868011475, "cluster": 2}, {"x": -12.767882347106934, "y": 7.353834629058838, "cluster": 2}, {"x": 13.22869873046875, "y": 4.671525001525879, "cluster": 3}, {"x": 0.535315990447998, "y": 3.2315430641174316, "cluster": 4}, {"x": 12.331839561462402, "y": -2.2025136947631836, "cluster": 0}, {"x": 10.650049209594727, "y": 2.197692394256592, "cluster": 0}, {"x": -8.221406936645508, "y": -7.953760623931885, "cluster": 0}, {"x": -10.71535587310791, "y": 11.636641502380371, "cluster": 2}, {"x": -3.784252643585205, "y": 3.888270378112793, "cluster": 4}, {"x": 9.241119384765625, "y": -1.6959220170974731, "cluster": 0}, {"x": 6.9631876945495605, "y": 5.294984340667725, "cluster": 0}, {"x": -7.0991692543029785, "y": -2.3063387870788574, "cluster": 4}, {"x": 11.695011138916016, "y": -0.05383247509598732, "cluster": 0}, {"x": -0.4293557405471802, "y": -2.1594414710998535, "cluster": 4}, {"x": 10.168871879577637, "y": -4.793175220489502, "cluster": 0}, {"x": 6.378617286682129, "y": 3.8959083557128906, "cluster": 0}, {"x": 13.089997291564941, "y": 4.822418689727783, "cluster": 3}, {"x": 0.09829261898994446, "y": 2.1563315391540527, "cluster": 4}, {"x": 11.976258277893066, "y": 2.124436616897583, "cluster": 0}, {"x": 1.9966402053833008, "y": -2.3154335021972656, "cluster": 4}, {"x": -9.288080215454102, "y": 8.856694221496582, "cluster": 2}, {"x": 8.75447940826416, "y": 1.0875924825668335, "cluster": 0}, {"x": 3.5016043186187744, "y": -11.504425048828125, "cluster": 1}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># chart.save('../out/vector_representations_clustered.png', scale_factor=2.0)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cluster-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="cluster-analysis">cluster analysis</h2>
+<section id="typical-examples" class="level3">
+<h3 class="anchored" data-anchor-id="typical-examples">typical examples</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>examples_n <span class="op">=</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>prompt_examples <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> <span class="bu">range</span>(clusters_n):</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    prompt_examples <span class="op">+=</span> <span class="ss">f'cluster </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">'</span> <span class="op">+</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    prompt_examples <span class="op">+=</span> <span class="st">'</span><span class="ch">\n</span><span class="st">'</span> <span class="op">+</span> format_examples(get_examples(df, c, examples_n)) <span class="op">+</span> <span class="st">'</span><span class="ch">\n\n</span><span class="st">'</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>display(Markdown(prompt_examples))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p>cluster 0</p>
+<ul>
+<li>in here it wo n’t allow me to store anything in here right well that ’s annoying so I can only put</li>
+<li>? yeah just get a pair just to eh keep in here well I ’ve got two pairs anyway so I might</li>
+<li>s like four or five drawers yeah there ’s four in here and they ’re nice it ’s a nice size one</li>
+<li>–ANONnameM not have one ? I ’ve got bigger bowls in here hang on a minute there might be something in here</li>
+<li>did it go ? ah users –ANONnameM my pictures probably in here what is it you ’re looking for ? er that</li>
+</ul>
+<p>cluster 1</p>
+<ul>
+<li>I ’m the alpaca Pandora of of the –ANONplace came in here totally see you as like a horror movie lead actually</li>
+<li>Helen live together and er they when I first moved in here and I was n’t sure about it and I was</li>
+<li>see it ? oh yeah yeah –ANONnameM –ANONnameM –ANONnameM come in here where I can see you hello hello hello hello juice</li>
+<li>when I lived with –ANONnameM and –ANONnameF before I moved in here mm hm and um she came and everything and it</li>
+<li>How long ago ? last year just before I moved in here oh right nah I were n’t there then in the</li>
+</ul>
+<p>cluster 2</p>
+<ul>
+<li>last night than yeah the night before it is cooler in here like like I think it was really hot last night</li>
+<li>it ’s too hot in here it ’s getting hot in here so hot so let ’s eat Christmas dinner erm I</li>
+<li>some for the hat have another one getting quite noisy in here now is n’t it let ’s go for a walk</li>
+<li>of an inkling of of apprehensiveness but it ’s busy in here look at this why ? cos it ’s the holidays</li>
+<li>just gone in the kitchen my goodness it is dark in here is n’t it without the lights ? wow let there</li>
+</ul>
+<p>cluster 3</p>
+<ul>
+<li>was erm why wo n’t this why will nothing fit in here ? Where is the knife ? –UNCLEARWORD to do that</li>
+<li>ca n’t think for the life of me it was in here ? yeah I looked in all the cupboards just in</li>
+<li>here look Fontana and Vrisar nothing about about what ’s in here ? well Porec centre did you see that ? no</li>
+<li>shopping is n’t it ? yeah yeah oh what ’s in here ? ah or in Tescos he does n’t –ANONnameM does</li>
+<li>slippers come from oh yeah what else have we got in here ? this is all the little baby turtles that we</li>
+</ul>
+<p>cluster 4</p>
+<ul>
+<li>I bet we ’ve got hundreds ca n’t see any in here although well you know at the risk of sounding racist</li>
+<li>in the other room cos we t- we ’re talking in here oh no well we ’ll talk in here well then</li>
+<li>n’t you so yeah but erm no point leaving it in here there ’ll be some money I ’m sure stuff and</li>
+<li>bit there and um last week when –ANONnameM was sleeping in here they started playing for some reason started playing really loud</li>
+<li>the table in here cos we ’re gon na eat in here yes I think so is that alright ? yeah –UNCLEARWORD</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="analysis-by-gpt" class="level3">
+<h3 class="anchored" data-anchor-id="analysis-by-gpt">analysis by GPT</h3>
+<section id="prompt" class="level4">
+<h4 class="anchored" data-anchor-id="prompt">prompt</h4>
+<div class="cell">
+<div class="cell-output cell-output-display">
+<p>You work as a corpuslinguistic annotator for a research project in linguistics. The data are from the BNC 2014 spoken corpus and contain utterances that feature the phrase ‘in here’. These utterances were classified into several clusters based on several features of the attested utterances: word forms, word classes, and several semantic and pragmatic features. The assumption is that these clusters represent different types of uses of the phrase ‘in here’ and that they show differences with regard to linguistic regularities underlying the use of ‘in here’. Your job is to summarise the regularities of each cluster, and to summarise how these clusters cover the space of usages of the phrase ‘in here’.</p>
+</div>
+</div>
+</section>
+<section id="analysis" class="level4">
+<h4 class="anchored" data-anchor-id="analysis">analysis</h4>
+<div class="cell">
+<div class="cell-output cell-output-display">
+<p>Cluster 0: This cluster seems to represent uses of ‘in here’ where the phrase refers to a specific location or container where items can be stored or found. The phrase is often used in the context of searching for something or discussing the placement of objects.</p>
+<p>Cluster 1: This cluster represents uses of ‘in here’ in the context of moving or coming into a place. The phrase is often used to describe someone’s arrival or relocation to a new place, such as moving into a new house or entering a room.</p>
+<p>Cluster 2: This cluster represents uses of ‘in here’ where the phrase is used to describe the conditions or atmosphere of a place, such as its temperature or noise level. The phrase is often used in the context of commenting on these conditions.</p>
+<p>Cluster 3: This cluster represents uses of ‘in here’ where the phrase is used in questions or exclamations about what is inside a particular place or container. The phrase is often used in the context of discovering or identifying what is inside.</p>
+<p>Cluster 4: This cluster represents uses of ‘in here’ where the phrase is used to refer to a specific location where activities are taking place or are planned to take place. The phrase is often used in the context of discussing these activities.</p>
+<p>These clusters cover a range of usages of ‘in here’, from referring to a specific location or container, to describing the conditions of a place, to discussing activities taking place in a location. They show that ‘in here’ can be used in a variety of contexts and with different meanings depending on the situation.</p>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
