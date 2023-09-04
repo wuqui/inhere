@@ -6,9 +6,13 @@ __all__ = ['load_data', 'get_one_hot_encoding', 'reduce_dimensions', 'get_number
 
 # %% ../nbs/01_src.ipynb 3
 import pandas as pd
+
 from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
 from scipy.spatial import distance
 from sklearn.manifold import TSNE
+
 import altair as alt
 
 # %% ../nbs/01_src.ipynb 5
@@ -49,11 +53,6 @@ def reduce_dimensions(df_onehot):
 	return dimred
 
 # %% ../nbs/01_src.ipynb 11
-from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
-import pandas as pd
-
-# %% ../nbs/01_src.ipynb 12
 def get_number_of_clusters(dimred):
     silhouette_scores = []
     # Start from 2 as silhouette score isn't defined for k=1
@@ -64,7 +63,7 @@ def get_number_of_clusters(dimred):
         optimal_k = silhouette_scores.index(max(silhouette_scores)) + 2
     return optimal_k
 
-# %% ../nbs/01_src.ipynb 13
+# %% ../nbs/01_src.ipynb 12
 def make_elbow_chart(dimred, n_max):
     wcss = []
     for i in range(1, n_max+1):
@@ -88,14 +87,14 @@ def make_elbow_chart(dimred, n_max):
     )
     return elbow_chart
 
-# %% ../nbs/01_src.ipynb 14
+# %% ../nbs/01_src.ipynb 13
 def run_clustering(dimred, k):
     kmeans = KMeans(n_clusters=k, random_state=42)
     clusters = kmeans.fit_predict(dimred)
     centers = kmeans.cluster_centers_
     return clusters, centers
 
-# %% ../nbs/01_src.ipynb 15
+# %% ../nbs/01_src.ipynb 14
 def get_cluster_distances(df, dimred, centers):
 	for i, center in enumerate(centers):
 		dists_atts = []
@@ -104,14 +103,14 @@ def get_cluster_distances(df, dimred, centers):
 		df[f'dist_cluster_{i}'] = dists_atts
 	return df
 
-# %% ../nbs/01_src.ipynb 17
+# %% ../nbs/01_src.ipynb 16
 def run_tsne(dimred):
 	tsne = TSNE(n_components=2, random_state=42)
 	tsne_values = tsne.fit_transform(dimred)
 	df_tsne = pd.DataFrame(tsne_values, columns=['x', 'y'])
 	return df_tsne
 
-# %% ../nbs/01_src.ipynb 18
+# %% ../nbs/01_src.ipynb 17
 def plot_tsne(df_tsne, clusters):
 	df_tsne['cluster'] = clusters
 	chart = alt.Chart(df_tsne).mark_point().encode(
