@@ -3,7 +3,7 @@
 # %% auto 0
 __all__ = ['get_examples', 'format_examples']
 
-# %% ../nbs/02_gptanalysis.ipynb 10
+# %% ../nbs/02_gptanalysis.ipynb 12
 def get_examples(df, cluster, n):
 	return (df
 		.nsmallest(n, f'dist_cluster_{cluster}')
@@ -11,7 +11,7 @@ def get_examples(df, cluster, n):
 		.loc[:, ['text']]
 	)
 
-# %% ../nbs/02_gptanalysis.ipynb 12
+# %% ../nbs/02_gptanalysis.ipynb 14
 def format_examples(examples):
 	# convert to list of strings
 	examples = examples['text'].tolist()
